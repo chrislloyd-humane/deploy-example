@@ -4,5 +4,3 @@
 2. Bot PRs land automatically
 3. PRs tagged with hotfix have higher priority
 4. prs are squashed
-
-Test
