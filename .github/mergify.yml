@@ -6,7 +6,7 @@ pull_request_rules:
   - name: automerge
     conditions:
       - and:
-        - "base=main"
+        - "base=dev"
         - "draft"
     actions:
       queue:
