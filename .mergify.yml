@@ -1,10 +1,24 @@
-queue_rules:
-  - name: dev
-    conditions: []
-  - name: prod
-    conditions: []
+# queue_rules:
+#   - name: dev
+#     conditions: []
+#   - name: prod
+#     conditions: []
 
 pull_request_rules:
+  - name: convert wip to draft
+    conditions:
+      - "#check-failure>0"
+    actions:
+      edit:
+        draft: True
+  
+  - name: request review when status checks pass
+    conditions:
+      - "#check-failure=0"
+    actions:
+      edit:
+        draft: False
+
   - name: automerge to dev
     conditions:
       - and:
@@ -12,7 +26,7 @@ pull_request_rules:
         - "-draft"
     actions:
       queue:
-        name: dev
+        name: default
         method: squash
         commit_message_template: |
           {{ title }} (#{{ number }})
@@ -28,9 +42,7 @@ pull_request_rules:
 
   - name: automerge to prod
     conditions:
-      - and:
-        - "base=prod"
-        - "author=mergify"
+      - "base=prod"
     actions:
       queue:
-        name: prod
+        name: default

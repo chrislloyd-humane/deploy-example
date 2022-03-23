@@ -6,3 +6,7 @@
 4. prs are squashed
 
 Another backport test
+
+```
+curl -F 'data=@.mergify.yml' https://engine.mergify.io/validate/
+```
