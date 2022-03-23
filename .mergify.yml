@@ -12,9 +12,9 @@ pull_request_rules:
       queue:
         name: dev
         method: squash
-        commit_message_template: >
+        commit_message_template: |
           {{ title }} (#{{ number }})
 
           {{ body }}
 
-          Pull Request: https://github.com/{{ repository_full_name }}/pulls/{{ number }}
+          Pull Request: https://github.com/{{ repository_full_name }}/pull/{{ number }}
