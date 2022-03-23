@@ -5,12 +5,6 @@
 3. PRs tagged with hotfix have higher priority
 4. prs are squashed
 
-<<<<<<< HEAD
-Another backport test
-=======
 ```
 curl -F 'data=@.mergify.yml' https://engine.mergify.io/validate/
 ```
-
-Test
->>>>>>> d9fba05 (Automerge to prod test (#19))
