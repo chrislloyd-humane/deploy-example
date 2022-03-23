@@ -15,3 +15,4 @@ To try it out, create a new PR editing the README. It should automerge to `dev`,
 # Validate mergify config
 curl -F 'data=@.mergify.yml' https://engine.mergify.io/validate/
 ```
+Newchange
