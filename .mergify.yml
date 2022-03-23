@@ -1,6 +1,8 @@
 queue_rules:
   - name: dev
     conditions: []
+  - name: prod
+    conditions: []
 
 pull_request_rules:
   - name: automerge to dev
@@ -23,3 +25,12 @@ pull_request_rules:
           - prod
         assignees:
           - "{{ author }}"
+
+  - name: automerge to prod
+    conditions:
+      - and:
+        - "base=prod"
+        - "author=mergify"
+    actions:
+      queue:
+        name: prod
