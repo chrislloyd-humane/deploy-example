@@ -5,6 +5,20 @@ queue_rules:
     conditions: []
 
 pull_request_rules:
+  - name: convert wip to draft
+    conditions:
+      - "#check-failure>0"
+    actions:
+      edit:
+        draft: True
+  
+  - name: request review when status checks pass
+    conditions:
+      - "#check-failure=0"
+    actions:
+      edit:
+        draft: False
+
   - name: automerge to dev
     conditions:
       - and:
@@ -28,9 +42,7 @@ pull_request_rules:
 
   - name: automerge to prod
     conditions:
-      - and:
-        - "base=prod"
-        - "author=mergify"
+      - "base=prod"
     actions:
       queue:
         name: prod
