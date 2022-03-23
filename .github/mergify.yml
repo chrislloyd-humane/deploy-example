@@ -1,12 +1,13 @@
 queue_rules:
   - name: dev
+    conditions: []
 
 pull_request_rules:
   - name: automerge
     conditions:
       - and:
         - "base=main"
-        - "draft=false"
+        - "draft"
     actions:
       queue:
         name: dev
@@ -16,4 +17,4 @@ pull_request_rules:
 
           {{ body }}
 
-          Pull Request: https://github.com/{{ repository-full-name }}/pulls/{{ number }}
+          Pull Request: https://github.com/{{ repository_full_name }}/pulls/{{ number }}
