@@ -3,7 +3,7 @@ queue_rules:
     conditions: []
 
 pull_request_rules:
-  - name: automerge
+  - name: automerge to dev
     conditions:
       - and:
         - "base=dev"
@@ -18,3 +18,8 @@ pull_request_rules:
           {{ body }}
 
           Pull Request: https://github.com/{{ repository_full_name }}/pull/{{ number }}
+      backport:
+        branches:
+          - prod
+        assignees:
+          - "{{ author }}"
