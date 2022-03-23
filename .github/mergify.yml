@@ -1,7 +1,15 @@
 pull_request_rules:
   - name: Automatic merge on approval
     conditions:
-      - "#approved-reviews-by>=1"
+      - and:
+        - "base=main"
+        - "draft=false"
     actions:
       merge:
-        method: merge
+        method: squash
+        commit_message_template: >
+          {{ title }} (#{{ number }})
+
+          {{ body }}
+
+          Pull Request: https://github.com/{{ repository-full-name }}/pulls/{{ number }}
