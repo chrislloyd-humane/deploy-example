@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: [prod]
+  pull_request:
+    branches: [prod]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Deploy"
