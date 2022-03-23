@@ -1,6 +1,6 @@
-# queue_rules:
-#   - name: dev
-#     conditions: []
+queue_rules:
+  - name: default
+    conditions: []
 #   - name: prod
 #     conditions: []
 
