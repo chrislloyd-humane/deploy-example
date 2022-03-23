@@ -1,8 +1,6 @@
 queue_rules:
   - name: default
     conditions: []
-#   - name: prod
-#     conditions: []
 
 pull_request_rules:
   - name: convert wip to draft
