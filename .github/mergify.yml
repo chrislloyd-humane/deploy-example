@@ -1,11 +1,15 @@
+queue_rules:
+  - name: dev
+
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: automerge
     conditions:
       - and:
         - "base=main"
         - "draft=false"
     actions:
-      merge:
+      queue:
+        name: dev
         method: squash
         commit_message_template: >
           {{ title }} (#{{ number }})
