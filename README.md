@@ -8,5 +8,3 @@
 ```
 curl -F 'data=@.mergify.yml' https://engine.mergify.io/validate/
 ```
-
-Test
